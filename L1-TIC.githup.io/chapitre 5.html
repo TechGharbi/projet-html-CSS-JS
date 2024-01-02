@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>chapitre 5</title>
+	<link rel ="stylesheet" href ="file:///C:/Users/hp/Documents/TIC/chapitre%201.css">
+    <meta name="description" content="le résumé du 5eme chapitre du module TIC">
+    <meta name="keywords" content="TIC,informatique,usthb,l1,programmation,resuméTIC">
+</head>
+<body>
+    <h1>chapitre 5 </h1>
+
+    <h3>1-{Introduction}</h3>
+Dans ce chapitre, nous allons définir ce que sont Git et GitHub afin d’éviter des
+confusions plus tard.
+
+   <h3>2-A quoi sert concrètement un système de gestion de version ?</h3>
+ A chaque fois que vous voulez modifier quelque chose sur le site ou tester une fonctionnalité, vous êtes obligé d’effectuer une sauvegarde du site avant l’implémentation afin de pouvoir le restaurer si quelque chose se passe mal.
+Jusqu’ici, le procédé est contraignant car vous allez devoir effectuer une sauvegarde complète et restaurer la sauvegarde en cas de problème mais cela ne semble pas très complexe ni insurmontable.
+
+
+   <h3>3-les modelesdes logiciels</h3>
+   Les deux modèles des logiciels de gestion de version : modèle centralisé vs modèle décentralisé
+   Les logiciels de gestion de version sont aujourd’hui tous construits sur l’un des deux modèles suivants : le modèle centralisé ou le modèle décentralisé encore appelé modèle distribué.
+   Dans un modèle distribué, le principe de base est opposé : le code source du projet est toujours hébergé sur un serveur distant mais chaque utilisateur est invité à télécharger et à héberger l’intégralité du code source du projet sur sa propre machine.
+   Le modèle distribué a été popularisé par Git et présente différents avantages notables
+   par rapport au modèle centralisé :
+   • Simplicité / flexibilité du travail : Comme chaque utilisateur peut héberger le code du projet, on n’a plus besoin d’être constamment connecté à un serveur central et on peut donc travailler en ligne sur sa propre machine ;
+    Git va nous permettre d’enregistrer les différentes modifications effectuées sur un projet et de pouvoir retourner à une version précédente du projet.
+    GitHub est un service en ligne qui permet d’héberger des dépôts ou repo Git.
+    Pour récapituler, et afin d’être bien clair sur ce point : Git est un logiciel de gestion de version tandis que GitHub est un service en ligne d’hébergement de dépôts Git qui fait office de serveur central pour ces dépôts.
+   
+   
+    <h3>4-Qu’est-ce que Git ?</h3>
+Un logiciel de versioning, ou logiciel de gestion de version est un logiciel qui permet de conserver un historique des modifications effectuées sur un projet afin de pouvoir
+rapidement identifier les changements effectués et de revenir à une ancienne version en cas de problème.
+Parmi les logiciels de gestion de versions, Git est le leader incontesté et il est donc
+
+
+    <h3>5-utiliser git</h3>
+    ligne de commande, console et interface graphique
+On peut utiliser différents types d’interfaces pour installer et pour utiliser Git.
+ Nous faisons ce choix pour différentes raisons:
+• Utiliser la ligne de commande est le seul moyen d’avoir accès à toutes les commandes Git ;
+• Toutes les personnes vont avoir accès aux mêmes commandes avec la ligne de commande, ce qui signifie que tout le monde pourra suivre ce cours de la même façon
+• Si vous savez comment utiliser la version en ligne de commande, vous saurez utiliser n’importe quelle autre interface graphique.
+ Dans la barre de recherche, rechercher cmd
+
+   <h3>6-Installation de Git</h3>
+   La façon la plus simple d’installer Git est de télécharger la dernière version sur le site officielhttp://git-scm.
+   com/downloads , d’ouvrir le fichier téléchargé et de suivre les instructions à l’écran en laissant toutes les valeurs par défaut.
+
+   <h3>7-parametrage de git</h3>
+   Pour faire cela, nous allons utiliser notre première commande Git qui est la commande git
+config. Cette commande permet de de voir et modifier les variables de configuration qui
+contrôlent tous les aspects de l’apparence et du comportement de Git.
+Nous allons également passer une option --global à notre commande. Les options
+permettent de personnaliser le comportement par défaut de certaines commandes. Ici,
+l’option --global va nous permettre d’indiquer à Git que le nom d’utilisateur et
+l’adresse mail renseignés doivent être utilisés globalement (c’est-à-dire pour tout
+projet Git).
+On va donc taper les commandes suivantes : git config --global user.name "Bouchekir
+Redouane" et git config --global user.email redouane.bouchekir@gmail.com à la suite
+pour renseigner un nom et une adresse email. Bien évidemment, utilisez votre propre
+nom et votre propre adresse email.
+
+<h3>8-demarrer un depo git</h3>
+Un “dépôt” correspond à la copie et à l’importation de l’ensemble des fichiers d’un
+projet dans Git. Il existe deux façons de créer un dépôt Git :
+• On peut importer un répertoire déjà existant dans Git ;
+• On peut cloner un dépôt Git déjà existant.
+
+Nous allons voir comment faire cela dans la suite de ce cours. Avant cela, je pense
+qu’il est bon de comprendre comment Git conçoit la gestion des informations ainsi
+que le fonctionnement général de Git.
+ 
+<h3>9-la gestion des information selon git</h3>
+La façon dont Git considère les données est assez différente de la plupart des autres systèmes
+de gestion de version.
+Git pense les données à la manière d’un flux d’instantanés ou “snapshots”.
+Chaque instantané est stocké dans une base de données locale, c’est-à-dire une base de
+données située sur notre propre machine.
+Le fait que l’on dispose de l’historique complet d’un projet localement fait que la grande
+majorité des opérations de Git peuvent être réalisées localement.
+
+<h3>10-Les états des fichiers</h3>
+Un fichier possède l’état “suivi” s’il appartenait au dernier instantané capturé par Git,Lorsqu’on démarre un dépôt Git en important un répertoire déjà existant depuis notre
+machine, les fichiers sont au départ tous non suivis.
+Ensuite, chaque fichier suivi peut avoir l’un de ces trois états :
+• Modifié (“modified”);
+• Indexé (“staged”);
+• Validé (“committed”).
+Lors du démarrage d’un dépôt Git à partir d’un dépôt local, on demande à Git de
+valider l’ensemble des fichiers du projet.
+Ensuite, lorsqu’on va travailler sur notre projet, on va certainement ajouter de
+nouveaux fichiers ou modifier des fichiers existants.
+On dit qu’on “indexe” un fichier lorsqu’on indique à Git que le fichier modifié ou que
+le nouveau fichier doit faire partie du prochain instantané dans sa version actuelle.
+Enfin, lorsqu’on demande à Git de prendre l’instantané, c’est-à-dire lorsqu’on lui
+demande d’enregistrer en base l’état du projet actuel.
+
+<h3>11-Les zones de travail</h3>
+Les états de fichiers sont liés à des zones de travail dans Git.
+Le répertoire de travail ou “working tree” correspond à une extraction unique (“checkout”)
+d’une version du projet.
+La zone d’index ou “staging area” correspond à un simple fichier, généralement situé dans le
+répertoire Git, qui stocke les informations concernant ce qui fera partie du prochain instantané
+ou du prochain “commit”.
+
+<h3>12-Créer un dépôt Git à partir d’un répertoire existant</h3>
+Lorsqu’on démarre avec Git, on a souvent déjà des projets en cours stockés localement sur notre machine ou sur serveur distant et pour lesquels on aimerait implémenter un système de gestion de version.
+Dans ce cas là, nous allons pouvoir importer l’ensemble des ressources d’un projet dans Git.
+ Pour la suite de cette leçon, je vais créer un répertoire “projet-git” qui se trouve sur mon bureau et qui contient deux fichiers texte vides “fichier1.
+txt”.
+Pour initialiser un dépôt Git, on utilise ensuite la commande
+La commande git statuts nous informe également sur la branche sur laquelle on se trouve (“master” ici).
+ Nous reparlerons des branches plus tard.
+Pour indexer des fichiers, on utilise la commande git add.
+On peut lui passer un nom de fichier pour indexer le fichier en question, le nom d’un répertoire pour indexer tous les fichiers du répertoire d’un coup ou encore un “fileglob” pour ajouter tous les fichiers correspondant au schéma fourni.
+Les fileglobs utilisent les extensions de chemin de fichier.
+Cela signifie que certains caractères comme * et ?
+ vont posséder une signification spéciale et nous permettre de
+git status
+créer des schémas de correspondances.
+ Lorsque j’écris git add *.
+txt, je demande finalement à Git d’ajouter à l’index tous les fichiers du projet qui possèdent une extension .
+txt, quel que soit leur nom.
+
+Pour valider ces fichiers et les ajouter en base, on va maintenant utiliser la commande . 
+git commit Lorsqu’on utilise git commit sans argument, une nouvelle fenêtre s’ouvre en utilisant
+l’éditeur par défaut qui est dans la majorité des cas VIM.
+Bien documenter chaque
+commit permet aux auteurs et aux différents contributeurs à un projet de rapidement
+comprendre les modifications et de pouvoir les valider.
+Ici,j’ajoute simplement le message “Version initiale du projet”.
+Une fois le message entré, si votre éditeur est bien VIM, il faut appuyer sur la touche
+sortir du mode insertion puis taper tout simplement 
+
+<h3>13-Cloner un dépôt Git</h3>
+La deuxième façon de démarrer un dépôt Git est de cloner localement un dépôt Git déjà
+existant.
+
+<h3>14-Ajouter ou modifier des fichiers dans un projet et actualiser notre dépôt Git</h3>
+A ce niveau, nous avons donc d’un côté notre projet contenant un ensemble de fichiers et de ressources sur lesquelles on travaille ainsi qu’un dépôt Git qui sert à gérer les différentes versions de notre projet.
+En continuant à travailler sur notre projet, nous allons être amenés à ajouter, modifier, voire supprimer des fichiers.
+ On va indiquer tous ces changements à Git pour qu’il conserve un historique des versions auquel on pourra ensuite accéder pour revenir à un état précédent du projet (dans le cas où une modification entraine un bogue par exemple ou n’amène pas le résultat souhaité).
+ Pour mettre en un coup les fichiers modifiés et déjà sous suivi dans la zone d’index puis pour les valider, vous pouvez également
+utiliser à taper
+
+<h3>15-Consulter l’historique des modifications Git</h3>
+avec une option -a comme ceci : git commit -a.
+Consulter l’historique des modifications Git
+git commit git add
+La manière la plus simple de consulter l’historique des modifications Git est d’utiliser la
+commande git log.
+Par défaut, chaque commit est affiché avec sa somme de contrôle SHA-1, le nom
+et l’e-mail de l’auteur, la date et le message du commit.
+
+
+<h3>16-Annuler des modifications apportées à un fichier</h3>
+L’un des principaux intérêts d’utiliser un logiciel de gestion de vision est de pouvoir “roll back”, c’est-à-dire de pouvoir revenir à un état antérieur enregistré d’un projet.
+Après un commit, on va continuer à travailler sur nos fichiers et à les modifier.
+Parfois, certaines modifications ne vont pas apporter les comportements espérés et on voudra revenir à l’état du fichier du dernier instantané Git (c’est-à-dire au dernier état enregistré).
+On va pouvoir faire cela avec la commande générale git checkout -- nom-du-fichier ou la nouvelle commande spécialisée git restore.
+
+<h3>17-Qu’est ce qu’une branche ?</h3>
+Dans la plupart des systèmes de contrôle de version, justement, une copie physique de la totalité du répertoire de travail est effectuée, ce qui rend la création de branches contraignante et en fait une opération lourde.
+Une branche, dans Git, est simplement un pointeur vers un commit (une branche n’est qu’un simple fichier contenant les 40 caractères de l’empreinte SHA-1 du commit sur lequel elle pointe).
+Pour rappel, lorsqu’on effectue un commit, Git stocke en fait un objet commit qui contient les nom et prénom de l’auteur du commit, le message renseigné lors de la création du commit ainsi qu’un pointeur vers l’instantané du contenu indexé et des pointeurs vers le ou les commits précédant directement le commit courant.
+Un pointeur est un objet qui contient l’adresse d’une donnée stockée quelque part.
+Ainsi, créer une nouvelle branche dans Git crée simplement un nouveau pointeur plutôt que de recopier l’intégralité du répertoire de travail.
+
+</body>
+</html>

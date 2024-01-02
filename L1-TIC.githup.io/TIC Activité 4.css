@@ -1,0 +1,15 @@
+body {
+    background:url('https://recursos.bps.com.es/files/1088/81.jpg');
+    background-size:cover;
+    
+}
+
+
+
+h1 { color:#b0c4de;
+     font-size:60px;
+           }
+ h2 { color:#b0c4de;
+     font-size:40px;
+ h3 {color:#b0c4de;}         
+   div { line-height:30px;}
